@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import {useDispatch, useSelector} from 'react-redux';
 import {selectAllPosts, selectPostById} from '../store/feed/selectors';
 import { fetchPosts } from "../store/feed/thunks";
+import { Link } from "react-router-dom";
 
 export default function Homepage() {
     // Now our component can just worry about the UI
@@ -19,16 +20,17 @@ export default function Homepage() {
     // We're still using useEffect because we want React to only dispatch this action once, right after the first render
     useEffect(() => {
         dispatch(fetchPosts);
-    }, []);
+    }, [dispatch]);
 
     return (
         <div>
+            <Link to={'/login'}>Login</Link>
             <h2>Content of post with id 13</h2>
             <p>{data.length === 0 ? "Loading..." : postById.content}</p>
             <hr />
 
             <h2>Posts</h2>
-            {data.length === 0 ? "Loading" : data.map((post) => <p>{post.title}</p>)}
+            {data.length === 0 ? "Loading" : data.map((post) => <p key={post.id}>{post.title}</p>)}
         </div>
     );
 }

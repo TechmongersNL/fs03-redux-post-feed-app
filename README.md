@@ -16,3 +16,11 @@ This repo follows the The Post Feed project section in the Redux Kyna course, mo
 ## Other Redux Intro repo:
 https://github.com/TechmongersNL/fs03-redux
 
+## Authentication vs Authorization
+Authentication is used to identify some client
+- Checking in at the front desk and showing your id
+
+Authorization is used to check if a client has access rights to some resource 
+- The keycard that you get that allows you to enter your room but no one else's. You don't have to keep checking in, and it's reprogrammable and there's some expiration date so it's fine if you lose it
+- JWT tokens: JSON web token
+- JWT token will be passed in to future requests with Authorization header
